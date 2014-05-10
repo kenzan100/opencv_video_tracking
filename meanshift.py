@@ -29,10 +29,9 @@ while(1):
     ret,track_window = cv2.meanShift(dst, track_window, term_crit)
 
     x,y,w,h = track_window
-    img2 = cv2.rectangle(frame,(x,y),(x+w,y+h),255,2)
-    line = cv2.line(mask,(0,0),(100,100),255,2)
-    # cv2.add(frame,line)
-    cv2.imshow('img2',frame)
+    img2 = cv2.circle(mask,(x,y),5,255,2)
+    image = cv2.add(mask,frame)
+    cv2.imshow('img2',image)
 
     k = cv2.waitKey(50) & 0xff
   else:
